@@ -1,0 +1,59 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+    {{ super() }}
+
+    <script type="text/javascript" src="{{ url_for('static', filename = 'search_results.js') }}"></script>
+
+    <script>
+        let results = JSON.parse('{{ results | tojson | safe }}');
+        let searchkey = JSON.parse('{{ searchkey | tojson | safe }}');
+        let names = JSON.parse('{{ names | tojson | safe }}');
+    </script>
+    
+
+    <style>
+        /* Styles for Cards */
+        .card {
+            height: 350px;
+        }
+
+        .card-img-top {
+            display: block;
+            margin: 15px auto;
+            width: 35%;
+            height: auto;
+        }
+
+        .card-title {
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .card-text {
+            text-align: justify;
+            color: grey;
+        }
+
+        /* Styles for Search Results */
+        .highlight-result {
+            background-color: rgb(97, 193, 102);
+        }
+
+        .toprow {
+            padding: 20px 0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .titlesearch {
+            font-weight: bold;
+            font-size: 22px;
+        }
+    </style>
+{% endblock head %}
+
+{% block content %}
+    {{ super() }}
+{% endblock content %}
