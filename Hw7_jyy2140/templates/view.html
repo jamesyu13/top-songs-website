@@ -1,0 +1,104 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+    {{ super() }}
+    <script type="text/javascript" src="{{ url_for('static', filename='view.js') }}"></script>
+    
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <script>
+        // Convert names and item to JavaScript objects
+        var names = JSON.parse('{{ names | tojson | safe }}');
+        var item = JSON.parse('{{ item | tojson | safe }}');
+    </script>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide|Sofia|Trirong">
+    
+    <style>
+        /* Custom CSS for two-column layout */
+        .row {
+            display: flex;
+        }
+
+        .left-column {
+            flex: 1;
+            padding-right: 20px; /* Add spacing between columns */
+        }
+
+        .right-column {
+            flex: 1;
+        }
+
+        .edit {
+            font-size: 20px;
+            padding: 15px;
+        }
+
+        /* CSS for clickable genres */
+        .genre-box {
+            cursor: pointer;
+        }
+    </style>
+{% endblock head %}
+
+{% block content %}
+    {{ super() }}
+
+    <div class="row">
+        <!-- Left Column -->
+        <div class="left-column">
+            <div id="title" class="viewtitle"></div>
+            <div id="image" class="col-md-6 image fixed-image"></div>
+            <div id="summary" class="info"><strong>Summary:</strong> <span></span></div>
+            <div id="writers" class="info" style="font-size: smaller; color: gray;"><strong>Writers:</strong> <span></span></div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="right-column">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <strong>Genres:</strong><br> <!-- Added bold "Genres:" title -->
+            {% for genre in item["genres"] %}
+                <!-- Make each genre clickable -->
+                <div class="genre-box" onclick="searchByGenre('{{ genre }}')">{{ genre }}</div>
+            {% endfor %}
+
+            <br>
+            <br>
+
+            <div id="peak_pos" class="info"><strong>Peak Position:</strong> <span></span></div>
+            <div id="weeks_on_chart" class="info"><strong>Weeks on Chart:</strong> <span></span></div>
+            <br>
+            <!-- Link Button -->
+            <div style="text-align: center;">
+                <button onclick="window.location.href='{{ item.link }}'" class="btn btn-primary btn-lg" style="background-color: green;">Link</button>
+            </div>
+
+            <div class="row">
+                <div id="title" class="col-md-11 viewtitle">
+                </div>
+                <div id="edit">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // Combine title and artist and set it as text for #title
+            let titleArtist = item.title + " by " + item.artist;
+            $("#title").text(titleArtist);
+        });
+
+        // JavaScript function to perform a search based on genre
+        function searchByGenre(genre) {
+            // Redirect to search_results page with the clicked genre as the search key
+            window.location.href = "/search_results/" + encodeURIComponent(genre);
+        }
+    </script>
+{% endblock content %}

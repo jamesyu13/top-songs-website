@@ -1,0 +1,131 @@
+.summary {
+    display: block;
+    padding-top: 10px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.hometitle {
+    text-align: center;
+    font-weight: bold;
+    font-size: 28px;
+    padding-top: 12px;
+}
+
+.homeheader {
+    text-align: center;
+    font-size: 22px;
+    padding-bottom: 12px;
+    color: rgb(171, 170, 170);
+}
+
+.homeheader1 {
+    text-align: center;
+    font-size: 22px;
+    padding-bottom: 12px;
+}
+
+.result-image {
+    width: 100%; /* Adjust the width as needed */
+    height: 100%; /* Maintain aspect ratio */
+    max-height: 350px; /* Adjust the maximum height as needed */
+    object-fit: cover; /* Ensure image covers entire container */
+}
+
+.fixed-image {
+    width: 140%; /* Adjust the width as needed */
+    height: auto;
+    max-height: 350px; /* Adjust the maximum height as needed */
+    object-fit: cover; /* Ensure image covers entire container */
+}
+
+
+
+/* Below is previous css */
+
+
+.viewtitle {
+    font-weight: bold;
+    font-family: "Audiowide", sans-serif;
+    font-size: 50px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+}
+
+.info {
+    text-align: left;
+    padding-bottom: 12px; /* Add padding to space out the elements */
+}
+
+#summary {
+    width: 100%; /* Make the summary span across the full width */
+}
+
+#genres span {
+    padding-left: 20px; /* Adjust the padding to your preference */
+}
+
+.result {
+    font-size: 20px;
+    padding: 20px;
+}
+#searchform {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+#searchbox {
+    width: 300px;
+}
+
+/* New style for list items */
+.song-item {
+    margin-bottom: 20px;
+}
+
+.song-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #040608;
+}
+
+/* New style for artist name */
+.artist-name {
+    font-size: 16px;
+    color: #666; 
+}
+
+.firstrow{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.genre-box {
+    display: inline-block;
+    padding: 5px 10px;
+    margin-right: 10px;
+    background-color: rgb(74, 152, 115);
+    color: white;
+}
+
+.result {
+    display: block;
+    font-size: 24px;
+    padding-bottom: 20px;
+}
+
+.eachresult {
+    display: block;
+    font-size: 18px;
+    padding: 15px;
+}
+
+#searchform {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+#searchbox {
+    width: 300px;
+}
